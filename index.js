@@ -76,7 +76,7 @@ function resetBoard() {
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 // #####################################################################################################
-var timeleft = 5;
+var timeleft = 60;
 var startGame = true;
 
 document.addEventListener('click', function (event) {
@@ -85,7 +85,7 @@ document.addEventListener('click', function (event) {
             document.getElementById("countdown").innerHTML = timeleft;
             if (isFinished === false) {
                 timeleft -= 1;
-                if (timeleft <= 0) {
+                if (timeleft <= -2) {
                     clearInterval(downloadTimer);
                     document.getElementById("countdown").innerHTML = "Finished"
                     document.getElementById('gameWrapper').innerHTML = `<div class="wrapper"><h2 class="over">GAME OVER!!</h2><a class="btn-over" href="game.html">Try Again</a></div>`
@@ -97,7 +97,7 @@ document.addEventListener('click', function (event) {
 }, false);
 
 let clickCount = document.getElementsByClassName(".counter"),
-    count = 0;
+    count = -1;
 clickCount.unflipCards() = function () {
     count += 1;
     clickCount.innerTEXT = count;
