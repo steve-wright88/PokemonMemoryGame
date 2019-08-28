@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../backimges/landingback.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-container {
+    flex: 4;
+}
+
+.title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 11rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-fill-color: #FFD700;
+    -webkit-text-stroke-color: blue;
+    -webkit-text-stroke-width: 2px;
+
+}
+
+.playContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    background-color: transparent !important;
+    /* -moz-border-radius: 42px;
+    -webkit-border-radius: 42px;
+    border-radius: 42px; */
+    display: inline-block;
+    cursor: pointer;
+    color: #FFD700;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 5rem;
+    text-decoration: none;
+    /* border: 4px solid transparent; */
+    padding: 8px;
+}
+
+a.button:hover {
+    border-color: none;
+    color: #ffff6b;
+}

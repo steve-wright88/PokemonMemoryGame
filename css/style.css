@@ -1,0 +1,198 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../backimges/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+
+.title-text {
+    flex: 3;
+    max-width: 1100px;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-right {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-left {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-left div {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 7rem;
+    text-decoration: none;
+
+    -webkit-text-fill-color: #FFD700;
+    -webkit-text-stroke-color: blue;
+    -webkit-text-stroke-width: 5px;
+
+}
+
+.grid-right h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 7rem;
+    text-decoration: none;
+
+    -webkit-text-fill-color: #FFD700;
+    -webkit-text-stroke-color: blue;
+    -webkit-text-stroke-width: 5px;
+
+}
+
+.title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+
+    -webkit-text-fill-color: #FFD700;
+    -webkit-text-stroke-color: blue;
+    -webkit-text-stroke-width: 5px;
+
+}
+
+.game {
+    flex: 4;
+    display: flex;
+    flex-direction: row;
+}
+
+.grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.over {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 11rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 5px;
+
+    -webkit-text-fill-color: blue;
+    -webkit-text-stroke-color: #FFD700;
+    -webkit-text-stroke-width: 5px;
+}
+
+.btn-over {
+    cursor: pointer;
+    color: red;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 6rem;
+    text-decoration: none;
+}
+
+.win {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 11rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 5px;
+
+    -webkit-text-fill-color: blue;
+    -webkit-text-stroke-color: #FFD700;
+    -webkit-text-stroke-width: 5px;
+}
+
+.btn-win {
+    cursor: pointer;
+    color: #FFD700;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 6rem;
+    text-decoration: none;
+}
+
+
+
+.card {
+    height: 16rem;
+    width: 16rem;
+    transform-style: preserve-3d;
+    transition: transform .2s;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+img {
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.card:active {
+    transition: transform .3s;
+
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    padding-bottom: 10px;
+    position: absolute;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
