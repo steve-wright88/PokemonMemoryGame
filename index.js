@@ -4,23 +4,23 @@ document.querySelector(".counter").onclick = () => {
     document.querySelectorAll('.card').forEach((card) => card.classList.add("flip"))
 }
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+let turnedOver = false;
+let lockGame = false;
+let firstChoice, secondChoice;
 
 function flipCard() {
-    if (lockBoard) return;
-    if (this === firstCard) return;
+    if (lockGame) return;
+    if (this === firstChoice) return;
 
     this.classList.add('flip');
 
-    if (!hasFlippedCard) {
-        hasFlippedCard = true;
-        firstCard = this;
+    if (!turnedOver) {
+        turnedOver = true;
+        firstChoice = this;
 
         return;
     }
-    secondCard = this;
+    secondChoice = this;
     matched();
 }
 
@@ -31,8 +31,8 @@ function matched() {
 
     guessCounter += 1
     document.querySelector('.counter').innerText = guessCounter;
-    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-    isMatch ? disableCards() : unflipCards();
+    let isMatch = firstChoice.dataset.framework === secondChoice.dataset.framework;
+    isMatch ? freezeCards() : unflipCards();
 
     if (isMatch === true) {
 
@@ -46,24 +46,24 @@ function matched() {
     }
 }
 
-function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
+function freezeCards() {
+    firstChoice.removeEventListener('click', flipCard);
+    secondChoice.removeEventListener('click', flipCard);
     resetBoard();
 }
 
 function unflipCards() {
-    lockBoard = true;
+    lockGame = true;
     setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
+        firstChoice.classList.remove('flip');
+        secondChoice.classList.remove('flip');
         resetBoard();
     }, 600);
 }
 
 function resetBoard() {
-    [hasFlippedCard, lockBoard] = [false, false];
-    [firstCard, secondCard] = [null, null];
+    [turnedOver, lockGame] = [false, false];
+    [firstChoice, secondChoice] = [null, null];
 }
 
 (function shuffle() {
@@ -76,18 +76,18 @@ function resetBoard() {
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 // #####################################################################################################
-var timeleft = 60;
+var timeleft = 10;
 var startGame = true;
 
 document.addEventListener('click', function (event) {
     if (startGame === true) {
-        var downloadTimer = setInterval(function () {
+        var countdownTimer = setInterval(function () {
             document.getElementById("countdown").innerHTML = timeleft;
             if (isFinished === false) {
                 timeleft -= 1;
                 if (timeleft <= -2) {
-                    clearInterval(downloadTimer);
-                    document.getElementById("countdown").innerHTML = "Finished"
+                    clearInterval(countdownTimer);
+                    document.getElementById("countdown").innerHTML = "UNLUCKY"
                     document.getElementById('gameWrapper').innerHTML = `<div class="wrapper"><h2 class="over">GAME OVER!!</h2><a class="btn-over" href="game.html">Try Again</a></div>`
                 }
             }
