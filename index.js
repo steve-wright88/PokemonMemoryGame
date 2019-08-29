@@ -76,7 +76,7 @@ function resetBoard() {
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 // #####################################################################################################
-var timeleft = 10;
+var timeleft = 60;
 var startGame = true;
 
 document.addEventListener('click', function (event) {
